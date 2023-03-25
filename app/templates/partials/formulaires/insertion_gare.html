@@ -1,0 +1,43 @@
+<form action="{{url_for('insertion_gare')}}" method="post" name="insertion_gare">
+    {{ form.hidden_tag() }}
+
+    <div class="form-group">
+        <label for="nom_gare">Nom de la gare </label>
+        {{ form.nom_gare(class_="form-control", placeholder_="gare") }}
+        <small id="nom_gare" class="form-text text-muted">Entrer le nom de la gare</small>
+    </div>
+
+    <div class="form-group">
+        <label for="code_gare">Code de la gare </label>
+        {{ form.code_gare(class_="form-control", placeholder_="Code") }}
+        <small id="code_gare" class="form-text text-muted">Entrer le code de la gare</small>
+    </div>
+
+    <div class="form-group">
+        <label for="type">Type de la gare</label>
+        {{ form.type(class_="form-control") }}
+        <small id="type" class="form-text text-muted">Sélectionner le 
+            type de la gare</small>
+    </div>
+
+    <div class="form-group">
+        <label for="introduction">Description</label>
+        {{ form.introduction(class_="form-control") }}
+        <small id="introduction" class="form-text text-muted">Description de la gare</small>
+    </div>
+
+    <div class="form-group">
+        <label for="ligne">Lignes qui desservent cette gare</label>
+        {{ form.ressources(class_="form-control") }}
+        <small id="ligne" class="form-text text-muted">Sélectionner une ou plusieurs lignes desservant la gare</small>
+    </div>
+<!--
+    <div class="form-group">
+        <label for="continent">Continent d'appartenance</label>
+        {{ form.continent(class_="form-control") }}
+        <small id="continent" class="form-text text-muted">Sélectionner un 
+            continent</small>
+    </div>
+-->
+    <p><input type="submit" value="Insérer"></p>
+</form>

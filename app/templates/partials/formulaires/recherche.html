@@ -1,0 +1,24 @@
+<form action="{{url_for('recherche')}}" method="post" name="recherche">
+    {{ form.hidden_tag() }}
+
+    <div class="form-group">
+        <label for="nom_pays">Nom de la gare recherchée </label>
+        {{ form.nom_gare(class_="form-control", placeholder_="Gare") }}
+        <small id="nom_gare" class="form-text text-muted">Entrer tout ou partie du nom d'une gare</small>
+    </div>
+
+    <div class="form-group">
+        <label for="ligne">Ligne</label>
+        {{ form.ligne(class_="form-control") }}
+        <small id="ligne" class="form-text text-muted">Sélectionner une ligne</small>
+    </div>
+<!--
+    <div class="form-group">
+        <label for="continents">Continent d'appartenance</label>
+        {{ form.continents(class_="form-control") }}
+        <small id="continents" class="form-text text-muted">Sélectionner un 
+            continent</small>
+    </div>
+-->
+    <p><input type="submit" value="Rechercher"></p>
+</form>
