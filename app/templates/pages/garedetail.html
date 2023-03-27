@@ -1,0 +1,18 @@
+{% extends 'pages/base.html' %}
+{% include 'partials/css_leaflet.html' %}
+
+{% block content %}
+    {%if donnees %}
+        <ul>
+            {%for data in donnees %}
+            <li>{{data}}</li>
+            {%endfor%}
+
+        </ul>    
+
+
+
+
+    {%endif%}
+
+{% endblock %}

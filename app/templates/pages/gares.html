@@ -16,7 +16,7 @@
         <tbody>
             {%for gare in pagination.items%}
             <tr>
-                <th scope="row"><a href="{{ url_for('gare', codeunique=gare.codeunique)}}">{{gare.label}}</a></th>
+                <th scope="row"><a href="{{ url_for('garedetail', codeunique=gare.codeunique)}}">{{gare.label}}</a></th>
                 <td>
                     {%for ligne in gare.lignes%}
                         {% if loop.index > 1 %}

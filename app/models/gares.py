@@ -74,10 +74,10 @@ class Lignes(db.Model):
 class Attributs(db.Model):
     __tablename__ = "attributs"
 
-    id = db.Column(db.Integer, db.ForeignKey('gares.codeunique'), primary_key=True)
-    valeur = db.Column(db.Integer)
+    valeur = db.Column(db.Integer, primary_key=True)
     relation = db.Column(db.Text)
 
+    id = db.Column(db.Integer, db.ForeignKey('gares.codeunique'))
 
 
 

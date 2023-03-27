@@ -222,22 +222,22 @@ except Exception as e :
 ##########
 print(str(datetime.now()) + " Création des données pour la table attributs")
 
-table_attributs = pd.concat([create_df_attribut(df, 'fer',"Est desservie par une ligne ferrée (TRAIN ou RER)"),
-                             create_df_attribut(df, 'train',"Est desservie par une ligne ferrée (TRAIN)"),
-                             create_df_attribut(df, 'rer',"Est desservie par une ligne ferrée (RER)"),
-                             create_df_attribut(df, 'metro',"Est desservie par une ligne de métro"),
-                             create_df_attribut(df, 'tramway',"Est desservie par une ligne de tramway"),
-                             create_df_attribut(df, 'navette',"Est desservie par une ligne dite navette (funiculaire ou val)"),
-                             create_df_attribut(df, 'val',"Est desservie par une ligne dite val"),
-                             create_df_attribut(df, 'terfer',"Est terminus d'une ligne ferrée (TRAIN ou RER)"),
-                             create_df_attribut(df, 'tertrain',"Est terminus d'une ligne ferrée (TRAIN)"),
-                             create_df_attribut(df, 'terrer',"Est terminus d'une ligne ferrée (RER)"),
-                             create_df_attribut(df, 'termetro',"Est terminus d'une ligne de métro"),
-                             create_df_attribut(df, 'tertram',"Est terminus d'une ligne de tramway"),
-                             create_df_attribut(df, 'ternavette',"Est terminus d'une ligne dite navette (funicualire ou val)"),
-                             create_df_attribut(df, 'terval',"Est terminus d'une ligne dite val"),
-                             create_df_attribut(df, 'principal',"Est une gare considérée comme principale"),
-                             create_df_attribut(df, 'idf',"Est en Île de France")])
+table_attributs = pd.concat([create_df_attribut(df, 'fer',"est desservie par une ligne ferrée (TRAIN ou RER)"),
+                             create_df_attribut(df, 'train',"est desservie par une ligne ferrée (TRAIN)"),
+                             create_df_attribut(df, 'rer',"est desservie par une ligne ferrée (RER)"),
+                             create_df_attribut(df, 'metro',"est desservie par une ligne de métro"),
+                             create_df_attribut(df, 'tramway',"est desservie par une ligne de tramway"),
+                             create_df_attribut(df, 'navette',"est desservie par une ligne dite navette (funiculaire ou val)"),
+                             create_df_attribut(df, 'val',"est desservie par une ligne dite val"),
+                             create_df_attribut(df, 'terfer',"est terminus d'une ligne ferrée (TRAIN ou RER)"),
+                             create_df_attribut(df, 'tertrain',"est terminus d'une ligne ferrée (TRAIN)"),
+                             create_df_attribut(df, 'terrer',"est terminus d'une ligne ferrée (RER)"),
+                             create_df_attribut(df, 'termetro',"est terminus d'une ligne de métro"),
+                             create_df_attribut(df, 'tertram',"est terminus d'une ligne de tramway"),
+                             create_df_attribut(df, 'ternavette',"est terminus d'une ligne dite navette (funicualire ou val)"),
+                             create_df_attribut(df, 'terval',"est terminus d'une ligne dite val"),
+                             create_df_attribut(df, 'principal',"est une gare considérée comme principale"),
+                             create_df_attribut(df, 'idf',"est en Île de France")])
 
 
 # création table et insertion des données
