@@ -1,68 +1,63 @@
-<nav class="navbar navbar-expand-lg  fixed-top navbar-light" style="background-color: #e3f2fd;">
-    <a class=" navbar-brand" href="{{ url_for('pays') }}">Factbook App</a>
-    <!--data-target="#navbarNav" aria-controls="navbarNav"-->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
+  <a class="navbar-brand" href="{{ url_for('home')}}">Les gares d'Ile-de-France</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="{{ url_for('accueil') }}">Accueil</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="{{ url_for('carte') }}">Carte</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="{{ url_for('gares', page = 1) }}">Gares</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="{{ url_for('lignes') }}">Liste des lignes</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="{{ url_for('recherche') }}">Recherche</a>
-        </li>
+      <li class="nav-item active">
+          <a class="nav-link" href="{{ url_for('home')}}">Accueil</a>
+      </li>
+      <li class="nav-item active">
+          <a class="nav-link" href="{{ url_for('carte')}}">Carte</a>
+      </li>
+      <li class="nav-item active">
+          <a class="nav-link" href="{{ url_for('gares', page = 1)}}">Liste des gares</a>
+      </li>
+      <li class="nav-item active">
+          <a class="nav-link" href="{{ url_for('lignes')}}">Liste des lignes</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ url_for('recherche') }}">Recherche</a>
+      </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Insertions
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ url_for('insertion_gare') }}">Nouvelle gare</a>
-            <a class="dropdown-item" href="{{ url_for('insertion_ligne') }}">Nouvelle ligne</a>
-          </div>
-        </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Insertions
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{ url_for('insertion_gare') }}">Gare</a>
+          <a class="dropdown-item" href="{{ url_for('insertion_ligne') }}">Ligne</a>
+        </div>
+      </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Suppressions
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-            <a class="dropdown-item" href="{{ url_for('suppression_gare') }}">Gare fermée</a>
-            <a class="dropdown-item" href="{{ url_for('suppression_ligne') }}">Ligne fermée</a>
-          </div>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Utilisateurs
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-            <a class="dropdown-item" href="{{ url_for('ajout_utilisateur') }}">Ajouter</a>
-            {% if current_user.is_authenticated %}
-            <a class="dropdown-item" href="{{ url_for('deconnexion') }}">Vous êtes connecté. Se déconnecter</a>
-            {% else %}
-            <a class="dropdown-item" href="{{ url_for('connexion') }}">Vous n'êtes pas connecté. Se connecter</a>
-            {% endif %}
-          </div>
-        </li>
-
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Suppressions
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+          <a class="dropdown-item" href="{{ url_for('suppression_gare') }}">Gare</a>
+          <a class="dropdown-item" href="{{ url_for('suppression_ligne') }}">Ligne</a>
+        </div>
+      </li>
       </ul>
-    </div>
-
-    <div alignment="right">{% include "partials/formulaires/recherche_rapide.html" %}</div>
-  </nav>
+  </div>
+  <div  class="collapse navbar-collapse" id="navbarSupportedContent" align="right">
+    <ul class="navbar-nav mr-auto">
+        {% if current_user.is_authenticated %}
+        <li class="nav-item active">
+          <a  class="nav-link" href="{{ url_for('ajout_utilisateur') }}">Ajout utilisateur</a>
+        </li>
+        <li class="nav-item active">
+          <a  class="nav-link" href="{{ url_for('deconnexion') }}">Déconnexion ({{current_user.prenom}})</a>
+        </li>
+        {% else %}
+        <li class="nav-item active">
+          <a  class="nav-link" href="{{ url_for('connexion') }}">Connexion</a>
+        </li>
+        {% endif %} 
+    </ul>
+  </div>
+</nav>
