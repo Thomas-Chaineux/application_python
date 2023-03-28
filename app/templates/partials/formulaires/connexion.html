@@ -2,9 +2,9 @@
     {{ form.hidden_tag() }}
 
     <div class="form-group">
-        <label for="prenom">Prénom de l'utilisateur</label>
-        {{ form.prenom(class_="form-control", placeholder_="Prénom") }}
-        <small id="prenom" class="form-text text-muted">Entrer le prénom</small>
+        <label for="mail">Email</label>
+        {{ form.mail(class_="form-control", placeholder_="mail") }}
+        <small id="mail" class="form-text text-muted">Entrer votre email</small>
     </div>
 
     <div class="form-group">
@@ -13,5 +13,5 @@
         <small id="password" class="form-text text-muted">Entrer un mot de passe</small>
     </div>
 
-    <p><input type="submit" value="Ajouter"></p>
+    <p><input type="submit" value="Se connecter"></p>
 </form>
