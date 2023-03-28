@@ -3,16 +3,39 @@
 
 {% block content %}
     {%if donnees %}
+    <h1>{% block title %} Gare de {{gare[0][0]}} {% endblock %}</h1>
+        </br>
+        <h3>Références</h3>
+        {%for reference in ref %}
         <ul>
-            {%for data in donnees %}
-            <li>{{data}}</li>
-            {%endfor%}
+            <li>Cette gare possède l'identifiant {{ref[reference]}} dans le {{reference}}.</li>
+        </ul>
+    {%endfor%}            
+        </br>
 
-        </ul>    
+        <h3>Réseau</h3>
+        {%for detail in donnees %}
+            <ul>
+                <li>Cette gare {{detail[0]}}.</li>
+            </ul>
+        {%endfor%}
+        </br>
+
+        <h3>Exploitation</h3>
+        <!--{%if exploitant %}
+        {%for exploitant in exploitant.exploitants%}
+        <ul>
+            <li>Cette gare est exploitée par {{exploitant.label}}</li>
+        </ul>
+        {%endfor%}
+        {%endif%}-->
 
 
 
-
-    {%endif%}
+{%else%}
+<p>Aucune donnée disponible pour cette gare</p>
+{%endif%}
 
 {% endblock %}
+
+
