@@ -4,6 +4,15 @@
 L'application utilise le jeu de données disponible sur le site Ile de France Mobilités (consultation mars 2023):
 https://data.iledefrance-mobilites.fr/explore/dataset/emplacement-des-gares-idf-data-generalisee/table/
 
+Réalisée dans le cadre du cours de Python de Maxime Challon, TNAH 2022-2023 avec les consignes suivantes :
+
+Réaliser une application lisant, modifiant et écrivant dans une base de données préremplie :
+
+a. plusieurs pages de rendus de données demandées, par exemple: un catalogue, un endpoint JSON, des cartes, des graphes, etc.
+
+b. la page de catalogue et le endpoint JSON devront intégrer des filtres sur les données. Faire de même pour les cartes et les graphes serait un plus.
+
+c. notions appelées: tables HTML, SQL, une bibliothèque JS pour les cartes et/ou les graphes.
 
 ## Processus d'installation: 
 #### *Télécharger/cloner le dossier de l'application sur votre ordinateur*
@@ -55,5 +64,7 @@ python flask_app
 
 #### *L'application est consultable sur le http://localhost:5000 de votre navigateur.*
 
+
+### Auteurs : Thomas Chaineux, William Le Roux, Aude Eychenne
 
 
