@@ -86,11 +86,7 @@ class Exploitants(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     label = db.Column(db.Text)
 
-#    gares_exploitants = db.relationship(
-#        'Gares',
- #       secondary=gares_exploitants,
-  #      backref="gares_exploitants"
-   # )
+
 
 
 class Modes(db.Model):
@@ -98,8 +94,4 @@ class Modes(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     label = db.Column(db.Text)
 
-    gares_modes = db.relationship(
-        'Gares',
-        secondary=gares_modes,
-        backref="gares_modes"
-    )    
+   

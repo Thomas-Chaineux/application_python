@@ -71,18 +71,8 @@ def ligne(id):
 @app.route("/garedetail/<string:codeunique>")
 def garedetail(codeunique):
     
-    dict_detailgare = Attributs.query.with_entities(Attributs.relation).filter(Attributs.id == codeunique, Attributs.valeur > 0).all()
-    nom_gare = Gares.query.with_entities(Gares.label).filter(Gares.codeunique == codeunique).all()
-    referentiel_gare = Gares.query.with_entities(Gares.id_ref_lda, Gares.id_ref_zdl, Gares.idrefliga, Gares.idrefligc).filter(Gares.codeunique == codeunique).all()
-    ref_gare = {"référentiel des Lieux d'Arrêt (LDA)": referentiel_gare[0][0],
-                "référentiel des Zones de Lieu (ZDL)": referentiel_gare[0][1],
-                "référentiel CodifLigne des lignes administratives" : referentiel_gare[0][2],
-                "référentiel CodifLigne des lignes commerciales": referentiel_gare[0][3]}
-    exploitant = Gares.query.filter(Gares.codeunique == codeunique).all()
-    #for exploitantsss in Gares.query.all():
-     #   print(exploitantsss.gares_exploitantss.label)
-    return render_template('pages/garedetail.html', donnees=dict_detailgare, gare=nom_gare, ref=ref_gare, exploitant=exploitant)
-
-
-
+    detailgare = Attributs.query.with_entities(Attributs.relation).filter(Attributs.id == codeunique, Attributs.valeur > 0).all()
+    
+    gare_cible = Gares.query.filter(Gares.codeunique == codeunique).all()
+    return render_template('pages/garedetail.html', donnees=detailgare, gare_cible=gare_cible)
 

@@ -351,7 +351,7 @@ except Exception as e :
 
 try:
     print(str(datetime.now()) + " Création d'une table utilisateurs")
-    c.execute("CREATE TABLE users (userid INTEGER PRIMARY KEY AUTOINCREMENT, pseudo NVARCHAR(20), password NVARCHAR(20), administrateur INTEGER DEFAULT 0)")
+    c.execute("CREATE TABLE users (userid INTEGER PRIMARY KEY AUTOINCREMENT, prenom NVARCHAR(20), mail NVARCHAR (50), password NVARCHAR(20), administrateur INTEGER DEFAULT 0)")
     print(str(datetime.now()) + " Table correctement créée")
 
 except Exception as e:
