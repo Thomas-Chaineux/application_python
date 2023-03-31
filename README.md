@@ -31,6 +31,15 @@ source env/bin/activate
 
 pip install -r requirements.txt
 
+#### *Ensuite, créer la base de données en SQLite à partir du fichier .csv fourni.*
+#### *Se rendre dans le sous dossier donnees_pour_sqlite, et exécuter le code python de création de la base:*
+
+python gares_to_sqlite.py
+
+#### *Il vous sera demandé d'introduire un prénom, un e-mail et un mot de passe TEMPORAIRE. Vous créez ainsi un profil administrateur. Le mot de passe devra être changé à la première connexion.*
+
+#### *La base de données est maintenant créée dans le dossier ("gares.sqlite").* 
+
 #### *Ensuite, créer un fichier .env:*
 
 touch .env
@@ -48,17 +57,7 @@ WTF_CSRF_ENABLE = True
 SECRET_KEY=<tapez une longue suite de caractères aléatoires. Attention, s'assurer de ne JAMAIS la modifier par la suite>
 
 
-#### *Ensuite, créer la base de données en SQLite à partir du fichier .csv fourni.*
-#### *Se rendre dans le sous dossier donnees_pour_sqlite, et exécuter le code python de création de la base:*
-
-python gares_to_sqlite.py
-
-
-
-#### *La base de données est maintenant créée dans le dossier ("gares.sqlite").* 
-
-
-#### *Une fois fait, exécuter l'application:*
+#### *Une fois fait, revenir à la racine et exécuter l'application:*
 
 python flask_app
 

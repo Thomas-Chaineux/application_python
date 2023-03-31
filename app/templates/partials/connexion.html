@@ -1,0 +1,18 @@
+<!-- PAS TOUCHE, TEL QUEL-->
+<form action="{{url_for('connexion')}}" method="post" name="connexion">
+    {{ form.hidden_tag() }}
+
+    <div class="form-group">
+        <label for="mail">Email</label>
+        {{ form.mail(class_="form-control", placeholder_="mail") }}
+        <small id="mail" class="form-text text-muted">Entrer votre email</small>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Mot de passe</label>
+        {{ form.password(class_="form-control", placeholder_="Mot de passe") }}
+        <small id="password" class="form-text text-muted">Entrer un mot de passe</small>
+    </div>
+
+    <p><input type="submit" value="Se connecter"></p>
+</form>

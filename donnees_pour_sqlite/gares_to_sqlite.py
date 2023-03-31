@@ -348,10 +348,12 @@ except Exception as e :
     print(e)
     sys.exit()
 
-
+##########
+#Création d'une table d'utilisateurs, en dehors du fichier .csv
+##########
 try:
     print(str(datetime.now()) + " Création d'une table utilisateurs")
-    c.execute("CREATE TABLE users (userid INTEGER PRIMARY KEY AUTOINCREMENT, prenom NVARCHAR(20), mail NVARCHAR (50), password NVARCHAR(20), administrateur INTEGER DEFAULT 0)")
+    c.execute("CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, prenom NVARCHAR(20), mail NVARCHAR (50), password NVARCHAR(20), administrateur INTEGER DEFAULT 0, mdp_crypte INTEGER DEFAULT 1)")
     print(str(datetime.now()) + " Table correctement créée")
 
 except Exception as e:
@@ -359,9 +361,23 @@ except Exception as e:
     sys.exit()
 
 
-#def creation_admin():
-    admin_name = input("Veuillez entrer un pseudo pour l'Administrateur")
-    print(admin_name)
-    admin_password = generate_password_hash(input("Veuillez entrer un mot de passe"))
-    print(admin_password)
-    c.execute(f'INSERT INTO users (pseudo, password, administrateur) VALUES ({admin_name}, {admin_password}, 1')
+##########
+#Définition d'un profil d'administrateur à l'initialisation de la base (données à entrer sur le terminal Linux)
+##########
+
+username = input("Entrez un nom d'utilisateur : ")
+mail = input("Entrez une adresse e-mail : ")
+password = input("Entrez un mot de passe temporaire: ")
+
+try:
+    df = pd.DataFrame({'prenom': [username], 'password': [password], 'mail' : [mail], 'administrateur': 1, 'mdp_crypte' : 0 })
+    df.to_sql('users', conn, if_exists='append', index=False)
+    print(str(datetime.now()) + " Profil Administrateur correctement crée")
+    print('LE MOT DE PASSE EST TEMPORAIRE ET SERA CHANGE A LA PREMIERE CONNEXION')
+
+except Exception as e:
+    print(e)
+    sys.exit
+
+conn.close()
+
