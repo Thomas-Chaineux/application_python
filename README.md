@@ -56,4 +56,4 @@ python flask_app
 #### *L'application est consultable sur le http://localhost:5000 de votre navigateur.*
 
 
-
+## *Application réalisée par William Le Roux, Aude Eychenne et Thomas Chaineux*
