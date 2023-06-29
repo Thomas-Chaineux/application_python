@@ -30,7 +30,7 @@ touch .env
 
 DEBUG=True
 
-SQLALCHEMY_DATABASE_URI=sqlite:<spécifier le chemin vers le répertoire dans lequel vous souhaitez créer la base de données>/gares.sqlite
+SQLALCHEMY_DATABASE_URI=sqlite:<spécifier le chemin vers le répertoire "donnees_pour_sqlite" sur votre ordinateur, dans lequel vous allez créer la base de données>/gares.sqlite
 
 GARES_PER_PAGE=20
 
