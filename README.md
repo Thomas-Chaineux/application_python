@@ -49,7 +49,7 @@ python gares_to_sqlite.py
 #### *La base de données est maintenant créée dans le dossier ("gares.sqlite").* 
 
 
-#### *Une fois fait, exécuter l'application:*
+#### *Une fois fait, revenir dans le répertoire "application_python", et exécuter l'application:*
 
 python flask_app
 
