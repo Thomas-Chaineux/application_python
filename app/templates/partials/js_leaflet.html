@@ -21,7 +21,7 @@ des gares ou seulement celles d'une ligne */
             longitudes += parseFloat(geoJSON.features[i].properties.geoPoint[1]);
         }
         center = [(latitudes/geoJSON.features.length).toString(), (longitudes/geoJSON.features.length).toString()];
-        zoom = 9;
+        zoom = 9.5;
     }
    /*  création de la carte via la librairie leaflet */
     const map = L.map('map').setView(center, zoom);
@@ -34,8 +34,8 @@ des gares ou seulement celles d'une ligne */
 améliorer l'affichage des lignes ds la pop-up en supprimant l'identifiant*/
     L.geoJSON(geoJSON,
     {onEachFeature: function (feature, layer) {
-                    var popupContent = '<p>Nom : '+
-                        '<strong><a href="/gare/'+feature.properties.id+'">'+
+                    let popupContent = '<p>Nom : '+
+                        '<strong><a href="/garedetail/'+feature.properties.id+'">'+
                             feature.properties.name+'</a></strong></p>'+
                             '<p>Ligne(s) : '+feature.properties.lignes+'</p>';
                     layer.bindPopup(popupContent);

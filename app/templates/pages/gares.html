@@ -2,7 +2,13 @@
 {% extends 'pages/base.html' %}
 
 {% block content %}
-    <h1>{% block title %} La liste des gares d'Ile-de-France par ordre alphabétique {% endblock %}</h1>
+    <h1>{% block title %} La liste des gares d'Ile-de-France{% endblock %}</h1>
+    <div>Les gares sont classées par ordre alphabétique.
+        <ul>
+            <li>Un clic sur le nom de la gare vous renverra vers la page d'information de la gare.</li>
+            <li>Un clic sur la colonne de droite vous enverra vers la position de la gare sur la carte, ainsi que les lignes qui la desservent.</li>
+        </ul>
+    </div>
     {%if pagination%}
     {% include 'partials/pagination.html' %}
     <table class="table">
@@ -10,13 +16,13 @@
             <tr>
                 <th scope="col">Station</th>
                 <th scope="col">Lignes</th>
-                <th scope="col">...</th>
+                <th scope="col">Liens vers la carte</th>
             </tr>
         </thead>
         <tbody>
             {%for gare in pagination.items%}
             <tr>
-                <th scope="row"><a href="{{ url_for('gare', codeunique=gare.codeunique)}}">{{gare.label}}</a></th>
+                <th scope="row"><a href="{{ url_for('garedetail', codeunique=gare.codeunique)}}">{{gare.label}}</a></th>
                 <td>
                     {%for ligne in gare.lignes%}
                         {% if loop.index > 1 %}

@@ -31,12 +31,10 @@ class Gares(db.Model):
     idrefliga= db.Column(db.String(100))
     idrefligc= db.Column(db.String(100))
 
-# PROPRIETE DE RELATIONS
     coordonnees = db.relationship('Coordonnees', backref='geom', lazy=True)
 
     attributs = db.relationship('Attributs', backref='attributss', lazy=True)
 
-#TABLES DE RELATIONS - Verifier la première (lignes ou gares_lignes?)
     gares_ligness = db.relationship(
         'Lignes', secondary=gares_lignes, backref="gares_ligness")
     
@@ -74,10 +72,10 @@ class Lignes(db.Model):
 class Attributs(db.Model):
     __tablename__ = "attributs"
 
-    id = db.Column(db.Integer, db.ForeignKey('gares.codeunique'), primary_key=True)
-    valeur = db.Column(db.Integer)
+    valeur = db.Column(db.Integer, primary_key=True)
     relation = db.Column(db.Text)
 
+    id = db.Column(db.Integer, db.ForeignKey('gares.codeunique'))
 
 
 
@@ -86,11 +84,7 @@ class Exploitants(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     label = db.Column(db.Text)
 
-    gares_exploitants = db.relationship(
-        'Gares',
-        secondary=gares_exploitants,
-        backref="gares_exploitants"
-    )
+
 
 
 class Modes(db.Model):
@@ -98,8 +92,4 @@ class Modes(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     label = db.Column(db.Text)
 
-    gares_modes = db.relationship(
-        'Gares',
-        secondary=gares_modes,
-        backref="gares_modes"
-    )    
+   

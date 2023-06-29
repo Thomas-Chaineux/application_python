@@ -1,0 +1,68 @@
+{% extends 'pages/base.html' %}
+{% include 'partials/css_leaflet.html' %}
+
+{% block content %}
+
+{% if donnees %}
+    {% for gare in gare_cible %}
+        <h1>Gare de {{ gare.label }}</h1>
+    {% endfor %}
+
+    <!-- NUMEROS DANS LES 4 REFERENTIELS-->
+    </br>
+    <h3>Références</h3>
+        
+    {% for reference in gare_cible %}
+        {% if reference.id_ref_lda %}        
+            <ul>
+                <li>Cette gare possède l'identifiant {{ reference.id_ref_lda }} dans le référentiel des Lieux d'Arrêt (LDA).</li>
+            </ul>
+        {% endif %}
+
+        {% if reference.id_ref_zdl %}        
+            <ul>
+                <li>Cette gare possède l'identifiant {{ reference.id_ref_zdl }} dans le référentiel des Zones de Lieu (ZDL).</li>
+            </ul>
+        {% endif %}
+
+        {% if reference.idrefliga %}        
+            <ul>
+                <li>Cette gare possède l'identifiant {{ reference.idrefliga }} dans le référentiel CodifLigne des lignes administratives.</li>
+            </ul>
+        {% endif %}
+
+        {% if reference.idrefligc %}        
+            <ul>
+                <li>Cette gare possède l'identifiant {{ reference.idrefligc }} dans le référentiel CodifLigne des lignes administratives.</li>
+            </ul>
+        {% endif %}
+    {% endfor %}
+    </br>
+
+    <!-- INDICATION DE RESEAU-->
+    <h3>Réseau</h3>
+    {% for detail in donnees %}
+        <ul>
+            <li>Cette gare {{ detail[0] }}.</li>
+        </ul>
+    {% endfor %}
+    </br>
+
+    <!-- EXPLOITANTS DE LA GARE -->
+    <h3>Exploitation</h3>
+    {% for gare in gare_cible %}
+        {% for exploitant in gare.gares_exploitantss %}
+            <ul>
+                <li>Cette gare est exploitée par {{ exploitant.label }}.</li>
+            </ul>
+        {% endfor %}
+    {% endfor %}
+    </br>
+
+
+
+{% else %}
+    <p>Aucune donnée disponible pour cette gare</p>
+{% endif %}
+
+{% endblock %}

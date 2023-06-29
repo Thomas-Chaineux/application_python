@@ -5,6 +5,13 @@
 
 {% block content %}
     <h1>{% block title %} Carte des gares d'Ile-de-France {% endblock %}</h1>
+    <div>Sur cette page, vous pouvez voir la répartition des gares en Île de France.
+        <ul>
+            <li>Vous pouvez zoomer/dézoomer sur la carte.</li>
+            <li>Vous pouvez cliquer sur chaque marqueur, qui vous donnera le nom de l'arrêt accompagné des lignes qui le désservent.</li>
+            <li>Vous pouvez cliquer sur le nom de l'arrêt, ce qui vous renverra vers une page contenant davantage d'informations sur celui-ci.</li>
+        </ul>
+    </div>
     <div id="map"></div>
     {% block JavaScript %}
     {% include 'partials/js_leaflet.html' %}
